@@ -9,7 +9,7 @@ import datetime as dt
 def scrape_all():
     # Set the executable path and initialize Splinter
     executable_path = {'executable_path': ChromeDriverManager().install()}
-    browser = Browser('chrome', **executable_path, headless=False)
+    browser = Browser('chrome', **executable_path, headless=True)
 
     news_title, news_paragraph = mars_news(browser)
     img_urls_titles = mars_hemis(browser)
@@ -18,14 +18,14 @@ def scrape_all():
         'news_title': news_title,
         'news_paragraph': news_paragraph,
         'featured_image': featured_image(browser),
-        'facts': mars_facts(),
+       # 'facts': mars_facts(),
         'hemispheres': img_urls_titles,
         'last_modified': dt.datetime.now()
     }
-
+    
     browser.quit()
     return data
-    
+
 def mars_news(browser):
 
     # Visit the mars nasa news site
@@ -50,7 +50,7 @@ def mars_news(browser):
 
     return news_title, news_p
 
-# ### JPL Space Images Featured Image
+# JPL Space Images Featured Image
 
 def featured_image(browser):
 
@@ -78,20 +78,18 @@ def featured_image(browser):
 
     return img_url
 
-# ### Mars Facts
-def mars_facts():
-
-    try:
-        df = pd.read_html('https://galaxyfacts-mars.com')[0]
-    
-    except BaseException:
-        return None
+## Mars Facts
+#def mars_facts():
+ #   try:
+  #      df = pd.read_html('https://galaxyfacts-mars.com')[0]
+   # except BaseException:
+    #    return "No_Joy"
 
     #Assign Columns/Index
-    df.columns=['Description', 'Mars', 'Earth']
-    df.set_index('Description', inplace=True)
+  #  df.columns=['Description', 'Mars', 'Earth']
+  #  df.set_index('Description', inplace=True)
     
-    return df.to_html()
+   # return df.to_html()
 
 
 def mars_hemis(browser):
