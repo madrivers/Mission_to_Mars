@@ -51,9 +51,10 @@
         <div class="col-md-4">
           <div class="row" id="mars-facts">
             <h4>Mars Facts</h4>
-            <iframe src="facts.html" ></iframe>
-            <!--<iframe name="tableframe" id="tableframe" src="facts"></iframe>-->
-           <!--- <table class = "table table-bordered">{{mars.facts | safe }}</table>-->
+            <div class="table-responsive"></div>
+            <!--<iframe src="facts.html" ></iframe>-->
+            <iframe name="tableframe" id="tableframe" src="facts" onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));' style="height:200px;width:100%;border:none;overflow:hidden;"></iframe>
+           <!---<table class = "table table-bordered">{{mars.facts | safe }}</table>-->
           </div>
         </div>
       </div>
