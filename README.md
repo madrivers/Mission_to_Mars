@@ -10,4 +10,9 @@ The purpose of this challenge was to scrape data from various websites and publi
  -This takes the jupyter file and transforms it into a scraping file that is leveraged by the HTML page to refresh data on command.
  -The HTML file organizes data in a easy to read format
  
+ ### Page Snapshot
+ ![Snapshot](https://github.com/madrivers/Mission_to_Mars/blob/main/resources/Mars%202.png)
  
+ ### Mars Snapshot
+ 
+![Mars](https://github.com/madrivers/Mission_to_Mars/blob/main/resources/Mars1.png)
